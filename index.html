@@ -3,48 +3,48 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vua Đèn Decor 3D</title>
+    <title>Tiệm Decor 3D</title>
     <style>
         /* CSS Reset & Cấu hình chung */
         * { box-sizing: border-box; margin: 0; padding: 0; }
         body { 
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
-            background-color: #121212; /* Nền tối */
-            color: #E0E0E0; /* Chữ sáng */
+            background-color: #0F0F0F; /* Nền đen tuyền siêu sâu */
+            color: #E0E0E0; /* Chữ trắng xám sang trọng */
         }
         
         /* Header */
         header { 
             display: flex; justify-content: space-between; align-items: center; 
-            padding: 20px 5%; background-color: #121212; border-bottom: 1px solid #333;
+            padding: 20px 5%; background-color: #0F0F0F; border-bottom: 1px solid #222;
         }
-        .logo { font-size: 24px; font-weight: bold; color: #FFB703; display: flex; align-items: center; gap: 10px;}
+        .logo { font-size: 24px; font-weight: bold; color: #D4B895; display: flex; align-items: center; gap: 10px;}
         .nav a { margin: 0 15px; text-decoration: none; color: #E0E0E0; font-weight: 500; }
-        .cart-icon { font-size: 24px; cursor: pointer; color: #FFB703; }
+        .cart-icon { font-size: 24px; cursor: pointer; color: #D4B895; }
 
         /* Hero Banner & Thanh tìm kiếm */
         .hero { 
-            display: flex; gap: 40px; padding: 40px 5%; background-color: #1E1E1E; align-items: center; 
+            display: flex; gap: 40px; padding: 40px 5%; background-color: #171717; align-items: center; 
         }
         .hero img { width: 55%; border-radius: 8px; object-fit: cover; border: 1px solid #333; transition: opacity 0.5s ease-in-out; }
         
         .hero-text { width: 45%; }
-        .hero-text h1 { color: #FFB703; font-size: 32px; font-weight: bold; margin-bottom: 15px; line-height: 1.3; }
-        .hero-text p { color: #CCCCCC; font-size: 16px; margin-bottom: 25px; line-height: 1.6; }
+        .hero-text h1 { color: #D4B895; font-size: 32px; font-weight: bold; margin-bottom: 15px; line-height: 1.3; }
+        .hero-text p { color: #BBBBBB; font-size: 16px; margin-bottom: 25px; line-height: 1.6; }
         .btn-primary { 
-            background-color: #FFB703; color: #121212; border: none; padding: 12px 24px; 
+            background-color: #D4B895; color: #0F0F0F; border: none; padding: 12px 24px; 
             font-size: 16px; font-weight: bold; border-radius: 4px; cursor: pointer; transition: 0.3s;
         }
-        .btn-primary:hover { background-color: #E6A100; }
+        .btn-primary:hover { background-color: #C2A278; }
         
         .search-box-hero { margin-top: 25px; position: relative; max-width: 90%; }
         .search-box-hero input {
-            width: 100%; padding: 12px 15px 12px 45px; border: 2px solid #444; 
+            width: 100%; padding: 12px 15px 12px 45px; border: 1px solid #333; 
             border-radius: 25px; font-size: 15px; outline: none; transition: 0.3s; 
-            background-color: #2A2A2A; color: #E0E0E0;
+            background-color: #222; color: #E0E0E0;
         }
-        .search-box-hero input::placeholder { color: #888; }
-        .search-box-hero input:focus { border-color: #FFB703; background-color: #333; }
+        .search-box-hero input::placeholder { color: #777; }
+        .search-box-hero input:focus { border-color: #D4B895; background-color: #2A2A2A; }
         
         @media screen and (max-width: 768px) {
             .hero { flex-direction: column; padding: 20px 5%; }
@@ -55,36 +55,37 @@
         
         /* Khung card sản phẩm */
         .product-card { 
-            background: #1E1E1E; padding: 12px; border-radius: 12px; 
-            border: 1px solid #333; text-align: left; 
-            box-shadow: 0 4px 15px rgba(0,0,0,0.5); display: flex;
-            flex-direction: column; width: 100% !important; max-width: none !important; 
+            background: #171717; padding: 12px; border-radius: 12px; 
+            border: 1px solid #2A2A2A; text-align: left; 
+            box-shadow: 0 8px 20px rgba(0,0,0,0.6); display: flex;
+            flex-direction: column; width: 100% !important; max-width: none !important; transition: transform 0.3s;
         }
+        .product-card:hover { transform: translateY(-5px); border-color: #D4B895; }
 
         .product-card img { 
             width: 100% !important; height: auto !important;       
             aspect-ratio: 3 / 4 !important; object-fit: cover !important;   
-            border-radius: 8px; margin-bottom: 15px; background: #121212;
+            border-radius: 8px; margin-bottom: 15px; background: #0F0F0F;
         }
-        .product-card h3 { font-size: 15px; font-weight: bold; color: #E0E0E0; margin-bottom: 8px; }
-        .product-card .price { font-weight: bold; color: #FFB703 !important; font-size: 16px; margin-bottom: 15px; }
+        .product-card h3 { font-size: 15px; font-weight: bold; color: #FFFFFF; margin-bottom: 8px; }
+        .product-card .price { font-weight: bold; color: #D4B895 !important; font-size: 16px; margin-bottom: 15px; }
         .product-card .btn-primary {
             width: 100%; margin-top: auto; border-radius: 8px;
-            padding: 12px; background-color: #FFB703; color: #121212;
+            padding: 12px; background-color: #D4B895; color: #0F0F0F;
         }
         
         .product-card .img-container { position: relative; width: 100%; overflow: hidden; border-radius: 8px; }
         .badge-image-count {
             position: absolute; top: 10px; right: 10px; background: rgba(0, 0, 0, 0.7);
-            color: #FFB703; padding: 4px 8px; font-size: 12px; font-weight: bold;
-            border-radius: 12px; backdrop-filter: blur(4px); z-index: 2; border: 1px solid #444;
+            color: #D4B895; padding: 4px 8px; font-size: 12px; font-weight: bold;
+            border-radius: 12px; backdrop-filter: blur(4px); z-index: 2; border: 1px solid #333;
         }
         .badge-sold-count {
-            position: absolute; top: 10px; left: 10px; background: rgba(255, 183, 3, 0.9);
-            color: #121212; padding: 4px 8px; font-size: 11px; font-weight: bold;
+            position: absolute; top: 10px; left: 10px; background: rgba(212, 184, 149, 0.9);
+            color: #0F0F0F; padding: 4px 8px; font-size: 11px; font-weight: bold;
             border-radius: 12px; box-shadow: 0 2px 4px rgba(0,0,0,0.3); z-index: 2;
         }
-        .product-code { font-size: 12px; color: #aaa; margin-bottom: 4px; }
+        .product-code { font-size: 12px; color: #888; margin-bottom: 4px; }
 
         .category-section { 
             padding: 40px 5% 20px 5% !important; display: flex; 
@@ -101,18 +102,18 @@
 
         .load-more-container { text-align: center; margin: 30px 0 50px 0; }
         .btn-load-more {
-            padding: 12px 35px; background-color: #1E1E1E; border: 2px solid #FFB703; 
-            color: #FFB703; font-size: 16px; font-weight: bold; border-radius: 25px; 
+            padding: 12px 35px; background-color: #171717; border: 1px solid #D4B895; 
+            color: #D4B895; font-size: 16px; font-weight: bold; border-radius: 25px; 
             cursor: pointer; transition: all 0.3s ease;
         }
-        .btn-load-more:hover { background-color: #FFB703; color: #121212; }
+        .btn-load-more:hover { background-color: #D4B895; color: #0F0F0F; }
 
         .custom-cta-box {
-            background-color: #1E1E1E; border: 2px dashed #FFB703;
+            background-color: #171717; border: 1px dashed #D4B895;
             border-radius: 12px; text-align: center; padding: 35px 20px; margin-bottom: 60px;
         }
-        .custom-cta-box h2 { color: #FFB703; margin-bottom: 10px; font-size: 22px; }
-        .custom-cta-box p { color: #CCCCCC; margin-bottom: 25px; font-size: 15px; }
+        .custom-cta-box h2 { color: #D4B895; margin-bottom: 10px; font-size: 22px; }
+        .custom-cta-box p { color: #BBBBBB; margin-bottom: 25px; font-size: 15px; }
         .cta-buttons a {
             display: inline-block; padding: 12px 30px; border-radius: 8px;
             text-decoration: none; color: white; font-weight: bold; margin: 0 10px; transition: opacity 0.3s;
@@ -123,11 +124,11 @@
             display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; margin-bottom: 50px;
         }
         .healing-item {
-            text-decoration: none; background: #1E1E1E; padding: 12px;
-            border-radius: 10px; border: 1px solid #333; box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+            text-decoration: none; background: #171717; padding: 12px;
+            border-radius: 10px; border: 1px solid #2A2A2A; box-shadow: 0 4px 10px rgba(0,0,0,0.3);
             text-align: center; display: block; transition: transform 0.3s;
         }
-        .healing-item:hover { transform: translateY(-5px); border-color: #FFB703; }
+        .healing-item:hover { transform: translateY(-5px); border-color: #D4B895; }
         .healing-item p { font-size: 14px; font-weight: bold; color: #E0E0E0; margin: 0; }
 
         /* Tối ưu hóa cho Mobile */
@@ -147,20 +148,20 @@
         /* Modal (Popup Chi tiết sản phẩm mới) */
         .modal-overlay {
             display: none; position: fixed; z-index: 1000; left: 0; top: 0; 
-            width: 100%; height: 100%; background-color: rgba(0,0,0,0.8); 
+            width: 100%; height: 100%; background-color: rgba(0,0,0,0.85); 
             backdrop-filter: blur(8px); justify-content: center; align-items: center;
         }
         .modal-container {
-            background-color: #1E1E1E; border-radius: 16px; width: 90vw !important;    
+            background-color: #171717; border-radius: 16px; width: 90vw !important;    
             max-width: 1100px !important; height: 90vh !important;  
             position: relative; animation: slideDown 0.3s ease-out;
-            padding: 30px; box-shadow: 0 15px 40px rgba(0,0,0,0.6); border: 1px solid #444;
+            padding: 30px; box-shadow: 0 15px 40px rgba(0,0,0,0.8); border: 1px solid #333;
             display: flex; flex-direction: column; overflow-y: auto;
         }
         .modal-close { 
             position: absolute; top: 15px; right: 25px; font-size: 32px; font-weight: bold; cursor: pointer; color: #888; z-index: 10; 
         }
-        .modal-close:hover { color: #FFB703; }
+        .modal-close:hover { color: #D4B895; }
         
         .modal-body { display: flex; gap: 30px; align-items: flex-start; margin-top: 10px; }
         
@@ -169,7 +170,7 @@
         .modal-main-img-box { width: 100%; height: 380px; }
         .modal-main-img-box img { 
             width: 100%; height: 100%; border-radius: 10px; object-fit: contain; 
-            background-color: #121212; border: 1px solid #333; display: block;
+            background-color: #0F0F0F; border: 1px solid #222; display: block;
         }
 
         .modal-thumbnails {
@@ -177,18 +178,18 @@
         }
         .modal-thumbnails img {
             width: 75px; height: 75px; object-fit: cover; border-radius: 8px; 
-            cursor: pointer; border: 2px solid transparent; transition: all 0.2s; flex-shrink: 0;
+            cursor: pointer; border: 1px solid transparent; transition: all 0.2s; flex-shrink: 0; opacity: 0.6;
         }
-        .modal-thumbnails img:hover, .modal-thumbnails img.active { border-color: #FFB703; }
+        .modal-thumbnails img:hover, .modal-thumbnails img.active { border-color: #D4B895; opacity: 1; }
 
         #bottomVideoContainer {
             width: 100%; margin-top: 10px; display: none;
         }
         
         .modal-info { width: 48%; display: flex; flex-direction: column; justify-content: flex-start; }
-        .modal-info h2 { font-size: 26px; color: #FFB703; margin-bottom: 12px; line-height: 1.4; }
-        .modal-price { font-size: 22px; color: #E6A100; font-weight: bold; margin-bottom: 15px; }
-        .modal-desc { margin-bottom: 25px; font-size: 15px; color: #CCCCCC; line-height: 1.6; }
+        .modal-info h2 { font-size: 26px; color: #FFFFFF; margin-bottom: 12px; line-height: 1.4; }
+        .modal-price { font-size: 22px; color: #D4B895; font-weight: bold; margin-bottom: 15px; }
+        .modal-desc { margin-bottom: 25px; font-size: 15px; color: #BBBBBB; line-height: 1.6; }
         .modal-desc ul { padding-left: 20px; margin-top: 5px; }
         
         @media screen and (max-width: 768px) {
@@ -201,7 +202,7 @@
             .modal-desc { font-size: 13px !important; margin-bottom: 15px !important; }
             .modal-close { top: 10px; right: 15px; font-size: 26px; }
         }
-        .social-icons a:hover { transform: translateY(-4px); border-color: #FFB703 !important; }
+        .social-icons a:hover { transform: translateY(-4px); border-color: #D4B895 !important; }
 
         #mainModalImg {
             transition: transform 0.3s ease, object-fit 0.3s ease;
@@ -216,41 +217,41 @@
 
         #customPhotoZoomModal {
             display: none; position: fixed; z-index: 3000; left: 0; top: 0;
-            width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.9);
+            width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.95);
             justify-content: center; align-items: center; backdrop-filter: blur(8px);
             cursor: zoom-out;
         }
         #customPhotoZoomModal img {
             max-width: 85vw; max-height: 85vh; border-radius: 12px; object-fit: contain;
-            box-shadow: 0 10px 40px rgba(0,0,0,0.8); border: 2px solid #333;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.9); border: 1px solid #333;
         }
 
     </style>
 </head>
 <body>
-    <div style="max-width: 1400px; margin: 0 auto; background-color: #121212; box-shadow: 0 0 20px rgba(0,0,0,0.5);">
+    <div style="max-width: 1400px; margin: 0 auto; background-color: #0F0F0F; box-shadow: 0 0 30px rgba(0,0,0,0.8);">
 
     <header>
-        <div class="logo">💡 Vua Đèn Decor 3D</div>
+        <div class="logo">🪴 Tiệm Decor 3D</div>
     </header>
 
     <div class="hero">
-        <img id="heroBannerImg" src="" alt="Bộ Đèn Decor">
+        <img id="heroBannerImg" src="" alt="Sản phẩm Decor">
         <div class="hero-text">
-            <h1>THƯ GIÃN TÂM TRÍ - CẢM HỨNG KHÔNG GIAN</h1>
-            <p>Khám phá bộ sưu tập đèn decor in 3D độc bản, kiến tạo góc setup ánh sáng cực chill.</p>
-            <button class="btn-primary" onclick="document.getElementById('product-list').scrollIntoView({behavior: 'smooth'});">XEM MẪU ĐÈN NGAY</button>
+            <h1>ĐIỂM NHẤN KHÔNG GIAN - NÂNG TẦM PHONG CÁCH</h1>
+            <p>Chuyên các sản phẩm decor trang trí nhà cửa, góc làm việc thiết kế độc bản từ công nghệ in 3D hiện đại.</p>
+            <button class="btn-primary" onclick="document.getElementById('product-list').scrollIntoView({behavior: 'smooth'});">KHÁM PHÁ NGAY</button>
             <div class="search-box-hero">
-                <span style="position: absolute; left: 15px; top: 50%; transform: translateY(-50%); font-size: 18px; color: #888;">🔍</span>
-                <input type="text" id="searchInput" onkeyup="liveSearch()" placeholder="Bạn đang tìm mẫu đèn chiếu sáng nào?...">
+                <span style="position: absolute; left: 15px; top: 50%; transform: translateY(-50%); font-size: 18px; color: #777;">🔍</span>
+                <input type="text" id="searchInput" onkeyup="liveSearch()" placeholder="Tìm đồ decor, phụ kiện bàn làm việc...">
             </div>
         </div>
     </div>
 
 <div style="max-width: 1320px; margin: 0 auto; padding: 0 20px;">
     <div class="category-section">
-        <h2>DANH MỤC SẢN PHẨM:</h2>
-        <button class="filter-btn active" style="background: transparent; color: #FFB703; border: 1px solid #FFB703; padding: 8px 15px; border-radius: 8px; cursor: pointer;" onclick="filterProducts('all', this)">
+        <h2 style="color: #FFFFFF;">DANH MỤC SẢN PHẨM:</h2>
+        <button class="filter-btn active" style="background: transparent; color: #D4B895; border: 1px solid #D4B895; padding: 8px 15px; border-radius: 8px; cursor: pointer;" onclick="filterProducts('all', this)">
             [ <span id="total-product-count">0</span> sản phẩm ]
         </button>
     </div>
@@ -267,18 +268,17 @@
             </div>
 
         <div class="custom-cta-box" style="padding: 20px 20px !important; margin: 20px auto !important;">
-            <h2>Bạn muốn tự tay thiết kế mẫu lồng đèn riêng?</h2>
-            <p>Gửi ý tưởng ngay — 💡 <b>Vua Đèn Decor</b> sẽ thiết kế 3D và biến không gian của bạn thành kiệt tác ánh sáng!</p>
+            <h2>Góc làm việc của bạn cần một thiết kế riêng?</h2>
+            <p>Gửi ý tưởng ngay — 🪴 <b>Tiệm Decor 3D</b> sẽ lên bản vẽ và in theo đúng kích thước bạn cần!</p>
             <div class="cta-buttons" style="margin-top: 15px; display: flex; justify-content: center; gap: 15px; flex-wrap: wrap;">
                 <a href="https://zalo.me/0833333832" target="_blank" style="background: #0068FF; color: white; padding: 10px 20px; border-radius: 6px; text-decoration: none; font-weight: bold;">Nhắn Zalo ngay</a>
-                <a href="https://m.me/bebom213/" target="_blank" style="background: #0084FF; color: white; padding: 10px 20px; border-radius: 6px; text-decoration: none; font-weight: bold;">Nhắn Messenger Ngay</a>
+                <a href="https://m.me/bebom213/" target="_blank" style="background: #0084FF; color: white; padding: 10px 20px; border-radius: 6px; text-decoration: none; font-weight: bold;">Nhắn Messenger</a>
             </div>
         </div>
 
         <div class="healing-horizontal-container">
-            <h3 style="font-weight: bold; margin-bottom: 20px; color: #FFB703;">GÓC CẢM HỨNG SETUP :</h3>
+            <h3 style="font-weight: bold; margin-bottom: 20px; color: #D4B895;">GÓC CẢM HỨNG SETUP :</h3>
             <div class="healing-grid">
-                <!-- Sếp có thể tự thay link video review đèn vào đây sau nhé -->
                 <div class="healing-item">
                     <iframe src="https://www.youtube.com/embed/ghkLuJc36wg" style="width: 100%; aspect-ratio: 1/1; border-radius: 8px; border: none;" allow="autoplay; encrypted-media" allowfullscreen></iframe>
                     <a href="https://www.youtube.com/watch?v=ghkLuJc36wg" target="_blank" style="text-decoration: none; color: inherit; display: block; margin-top: 10px;">
@@ -288,15 +288,15 @@
                 <div class="healing-item">
                     <iframe src="https://www.youtube.com/embed/_7ah1siEwSg" style="width: 100%; aspect-ratio: 1/1; border-radius: 8px; border: none;" allow="autoplay; encrypted-media" allowfullscreen></iframe>
                     <a href="https://www.youtube.com/shorts/_7ah1siEwSg" target="_blank" style="text-decoration: none; color: inherit; display: block; margin-top: 10px;">
-                        <p style="margin: 0; font-weight: bold;">Họa tiết đèn 3D độc đáo</p>
+                        <p style="margin: 0; font-weight: bold;">Đồ Decor 3D độc đáo</p>
                     </a>
                 </div>
                 <div class="healing-item">
-                    <div style="width: 100%; aspect-ratio: 1/1; border-radius: 8px; background: #2A2A2A; display: flex; align-items: center; justify-content: center; color: #888;">Video 3</div>
-                    <p style="margin-top: 10px; font-weight: bold;">Tùy chỉnh màu sắc đèn</p>
+                    <div style="width: 100%; aspect-ratio: 1/1; border-radius: 8px; background: #222; display: flex; align-items: center; justify-content: center; color: #555;">Video 3</div>
+                    <p style="margin-top: 10px; font-weight: bold;">Tùy chỉnh màu sắc</p>
                 </div>
                 <div class="healing-item">
-                    <div style="width: 100%; aspect-ratio: 1/1; border-radius: 8px; background: #2A2A2A; display: flex; align-items: center; justify-content: center; color: #888;">Video 4</div>
+                    <div style="width: 100%; aspect-ratio: 1/1; border-radius: 8px; background: #222; display: flex; align-items: center; justify-content: center; color: #555;">Video 4</div>
                     <p style="margin-top: 10px; font-weight: bold;">Đóng gói an toàn</p>
                 </div>
             </div>
@@ -319,7 +319,7 @@
                     </div>
 
                     <div id="bottomVideoContainer">
-                        <div style="font-size: 14px; font-weight: bold; color: #FFB703; margin-bottom: 8px;">🎬 Video Trải Nghiệm:</div>
+                        <div style="font-size: 14px; font-weight: bold; color: #D4B895; margin-bottom: 8px;">🎬 Video Trải Nghiệm:</div>
                         <div id="bottomIframeBox" style="width: 100%; max-width: 200px; aspect-ratio: 9/16; margin: 0 auto; background: #000; border-radius: 10px; overflow: hidden; border: 1px solid #333;">
                             <!-- Iframe YouTube sẽ chui vào đây -->
                         </div>
@@ -418,10 +418,10 @@
 
             if (slicedData.length === 0) {
             productList.innerHTML = `
-                <div style="grid-column: 1 / -1; width: 100%; padding: 50px 20px; background: #1E1E1E; border-radius: 16px; text-align: center; border: 2px dashed #FFB703; box-shadow: 0 10px 30px rgba(0,0,0,0.5);">
-                    <div style="font-size: 45px; margin-bottom: 15px;">💡❓</div>
-                    <h3 style="color: #FFB703; margin-bottom: 10px; font-size: 22px;">Rất Tiếc, Hiện Tại Chưa Có Mẫu Nào Khớp Từ Khóa Này!</h3>
-                    <p style="color: #ccc; font-size: 16px; margin-bottom: 0;">Đừng Lo! Bạn Có Thể Nhắn Trực Tiếp Để 💡 <b>Vua Đèn Decor</b> Thiết Kế Bản Vẽ 3D và In Theo Yêu Cầu Của Riêng Bạn Nhé!</p>
+                <div style="grid-column: 1 / -1; width: 100%; padding: 50px 20px; background: #171717; border-radius: 16px; text-align: center; border: 1px dashed #D4B895; box-shadow: 0 10px 30px rgba(0,0,0,0.5);">
+                    <div style="font-size: 45px; margin-bottom: 15px;">🪴❓</div>
+                    <h3 style="color: #D4B895; margin-bottom: 10px; font-size: 22px;">Rất Tiếc, Hiện Tại Chưa Có Mẫu Nào Khớp Từ Khóa Này!</h3>
+                    <p style="color: #ccc; font-size: 16px; margin-bottom: 0;">Đừng Lo! Bạn Có Thể Nhắn Trực Tiếp Để 🪴 <b>Tiệm Decor 3D</b> Thiết Kế Bản Vẽ 3D và In Theo Yêu Cầu Của Riêng Bạn Nhé!</p>
                 </div>
             `;
         } else {
@@ -446,12 +446,12 @@
                                 <div class="product-code">Mã: ${productCode}</div>
                                 <h3>${item.name}</h3>
                                 <p class="price">${item.price}</p>
-                                <hr style="border: none; border-top: 1px dashed #444; margin: 10px 0;">
+                                <hr style="border: none; border-top: 1px dashed #333; margin: 10px 0;">
                                 <div style="display: flex; justify-content: space-between; align-items: center; font-size: 12px; color: #888; margin-bottom: 12px;">
             <span>👁️ ${Math.floor(Math.random() * (500 - 150 + 1)) + 150} lượt xem</span>
-            <span style="color: #FFB703; font-weight: bold;">★ 5.0</span>
+            <span style="color: #D4B895; font-weight: bold;">★ 5.0</span>
         </div>
-                                <button class="btn-primary" style="width: 100%; padding: 10px; background-color: #FFB703; color: #121212; font-weight: bold; border: none; border-radius: 8px; cursor: pointer;" onclick="openModal(${item.id})"> CHI TIẾT SẢN PHẨM </button>
+                                <button class="btn-primary" style="width: 100%; padding: 10px; background-color: #D4B895; color: #0F0F0F; font-weight: bold; border: none; border-radius: 8px; cursor: pointer;" onclick="openModal(${item.id})"> XEM CHI TIẾT </button>
                             </div>
                         </div>
                     `;
@@ -542,7 +542,7 @@
                 const descContainer = document.querySelector('.modal-desc');
                 if (descContainer) {
                     if (Array.isArray(product.desc)) {
-                        let htmlContent = '<strong>Thông số đèn:</strong><ul style="padding-left: 20px; margin-top: 5px;">';
+                        let htmlContent = '<strong>Thông tin chi tiết:</strong><ul style="padding-left: 20px; margin-top: 5px;">';
                         product.desc.forEach(line => {
                             htmlContent += `<li style="margin-bottom: 6px;">${line}</li>`;
                         });
@@ -551,7 +551,7 @@
                     } else if (product.desc) {
                         descContainer.innerHTML = product.desc;
                     } else {
-                        descContainer.innerHTML = '<strong>Thông số đèn:</strong><p>Đang cập nhật mô tả...</p>';
+                        descContainer.innerHTML = '<strong>Thông tin chi tiết:</strong><p>Đang cập nhật...</p>';
                     }
                 }
 
@@ -593,7 +593,7 @@
                     });
                 }
 
-                const message = encodeURIComponent(`Chào shop, mình muốn đặt mẫu: ${product.name}`);
+                const message = encodeURIComponent(`Chào shop, mình muốn tư vấn mẫu decor: ${product.name}`);
                 const zaloBtn = document.getElementById('modalZaloBtn');
                 if(zaloBtn) {
                     zaloBtn.onclick = function() {
@@ -633,34 +633,34 @@
         }
     </script>
 
-<footer style="max-width: 700px; margin: 20px auto; background-color: #1E1E1E; padding: 30px 20px; border-radius: 16px; border: 1px solid #333; box-shadow: 0 4px 15px rgba(0,0,0,0.5); text-align: center;">
-    <h3 style="color: #FFB703; font-size: 28px; margin-bottom: 10px;">
-        💡 Vua Đèn Decor 3D
+<footer style="max-width: 700px; margin: 20px auto; background-color: #171717; padding: 30px 20px; border-radius: 16px; border: 1px solid #222; box-shadow: 0 4px 15px rgba(0,0,0,0.5); text-align: center;">
+    <h3 style="color: #D4B895; font-size: 28px; margin-bottom: 10px;">
+        🪴 Tiệm Decor 3D
     </h3>
-    <p style="color: #ccc; font-size: 15px; max-width: 600px; margin: 0 auto 20px auto; line-height: 1.3;">
-        Chuyên thiết kế, in 3D các mẫu lồng đèn decor độc bản. Kiến tạo điểm nhấn ánh sáng nghệ thuật cho góc làm việc của riêng bạn!
+    <p style="color: #BBBBBB; font-size: 15px; max-width: 600px; margin: 0 auto 20px auto; line-height: 1.3;">
+        Chuyên các sản phẩm decor in 3D hiện đại, thiết kế độc bản. Thổi hồn vào không gian sống của bạn!
     </p>
 
     <div class="social-icons" style="display: flex; justify-content: center; gap: 20px; margin-bottom: 25px; flex-wrap: wrap; align-items: center;">
-        <a href="https://facebook.com/bebom213" target="_blank" title="Facebook Page" style="background: #2A2A2A; width: 45px; height: 45px; border-radius: 50%; display: flex; align-items: center; justify-content: center; border: 1px solid #444; transition: all 0.3s;">
+        <a href="https://facebook.com/bebom213" target="_blank" title="Facebook Page" style="background: #222; width: 45px; height: 45px; border-radius: 50%; display: flex; align-items: center; justify-content: center; border: 1px solid #333; transition: all 0.3s;">
             <img src="https://upload.wikimedia.org/wikipedia/commons/b/b8/2021_Facebook_icon.svg" alt="Facebook" width="24" height="24">
         </a>
-        <a href="https://youtube.com/@YOUR_YOUTUBE" target="_blank" title="YouTube Channel" style="background: #2A2A2A; width: 45px; height: 45px; border-radius: 50%; display: flex; align-items: center; justify-content: center; border: 1px solid #444; transition: all 0.3s;">
+        <a href="https://youtube.com/@YOUR_YOUTUBE" target="_blank" title="YouTube Channel" style="background: #222; width: 45px; height: 45px; border-radius: 50%; display: flex; align-items: center; justify-content: center; border: 1px solid #333; transition: all 0.3s;">
             <img src="https://upload.wikimedia.org/wikipedia/commons/0/09/YouTube_full-color_icon_%282017%29.svg" alt="YouTube" width="26" height="26">
         </a>
-        <a href="https://tiktok.com/@YOUR_TIKTOK" target="_blank" title="TikTok" style="background: #2A2A2A; width: 45px; height: 45px; border-radius: 50%; display: flex; align-items: center; justify-content: center; border: 1px solid #444; transition: all 0.3s;">
+        <a href="https://tiktok.com/@YOUR_TIKTOK" target="_blank" title="TikTok" style="background: #222; width: 45px; height: 45px; border-radius: 50%; display: flex; align-items: center; justify-content: center; border: 1px solid #333; transition: all 0.3s;">
             <img src="https://upload.wikimedia.org/wikipedia/commons/3/34/Ionicons_logo-tiktok.svg" alt="TikTok" width="22" height="22">
         </a>
-        <a href="https://instagram.com/@YOUR_INSTAGRAM" target="_blank" title="Instagram" style="background: #2A2A2A; width: 45px; height: 45px; border-radius: 50%; display: flex; align-items: center; justify-content: center; border: 1px solid #444; transition: all 0.3s;">
+        <a href="https://instagram.com/@YOUR_INSTAGRAM" target="_blank" title="Instagram" style="background: #222; width: 45px; height: 45px; border-radius: 50%; display: flex; align-items: center; justify-content: center; border: 1px solid #333; transition: all 0.3s;">
             <img src="https://upload.wikimedia.org/wikipedia/commons/e/e7/Instagram_logo_2016.svg" alt="Instagram" width="24" height="24">
         </a>
-        <a href="https://zalo.me/0833333832" target="_blank" title="Zalo Chat" style="background: #2A2A2A; width: 45px; height: 45px; border-radius: 50%; display: flex; align-items: center; justify-content: center; border: 1px solid #444; transition: all 0.3s;">
+        <a href="https://zalo.me/0833333832" target="_blank" title="Zalo Chat" style="background: #222; width: 45px; height: 45px; border-radius: 50%; display: flex; align-items: center; justify-content: center; border: 1px solid #333; transition: all 0.3s;">
             <img src="https://upload.wikimedia.org/wikipedia/commons/9/91/Icon_of_Zalo.svg" alt="Zalo" width="24" height="24">
         </a>
     </div>
 
-    <div style="font-size: 13px; color: #666; border-top: 1px solid #333; padding-top: 15px;">
-        © 2026 Vua Đèn Decor - All rights reserved. Built with ❤️ for Setup Lovers.
+    <div style="font-size: 13px; color: #666; border-top: 1px solid #222; padding-top: 15px;">
+        © 2026 Tiệm Decor 3D - All rights reserved. Built with ❤️ for Home Lovers.
     </div>
 </footer>
 
