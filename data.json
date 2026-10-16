@@ -1,0 +1,107 @@
+[
+    {
+        "id": 1,
+        "category": "plant",
+        "name": "Bộ Kít DIY- BABY DUCK ( Vịt Đáng Yêu ) - #001",
+        "price": "120.000 đ",
+        "img": "images/sp_1/1.png",
+        "images": [
+            "images/sp_1/1.png",
+            "images/sp_1/2.jpg",
+            "images/sp_1/3.jpg",
+            "images/sp_1/b1.png"
+        ],
+        "desc": "<p><b>Thỏa sức sáng tạo, tự tay tô điểm cá tính cho góc làm việc hoặc làm món quà tặng handmade cực kỳ ý nghĩa!</b></p>\n\n<p style=\"margin-top: 12px;\"><b>📦 Bộ Kit đầy đủ bao gồm:</b></p>\n<ul style=\"padding-left: 20px; margin-top: 5px;\">\n    <li>🧊 Chất liệu 100% nhựa sinh học PLA chính hãng (chiết xuất từ thiên nhiên, an toàn tuyệt đối cho trẻ nhỏ): 01 Phôi mô hình 3D chuẩn size (Cao ~12-15 cm) đã được xưởng xử lý sơn lót tỉ mỉ, giúp màu Acrylic bám dính cực tốt, lên màu chuẩn và che phủ hoàn toàn vân in.</li>\n    <li>01 Vỉ 6 màu Acrylic chuyên dụng: Màu tươi sáng, an toàn, dễ pha trộn.</li>\n    <li>02 Cọ vẽ tiểu tiết: Hỗ trợ hoàn thiện các đường nét tỉ mỉ nhất.</li>\n</ul>\n\n<p style=\"margin-top: 12px;\"><b>💡 Hướng dẫn sử dụng nhanh:</b></p>\n<ul style=\"padding-left: 20px; margin-top: 5px;\">\n    <li>Lấy cọ quét trực tiếp màu Acrylic lên phôi đã sơn lót sẵn.</li>\n    <li>Đợi màu khô tự nhiên trong khoảng 10-15 phút.</li>\n    <li>Trưng bày ngay thành phẩm \"masterpiece\" do chính tay mình tạo ra!</li>\n</ul>\n\n<p style=\"margin-top: 12px;\"><b>📌 Lưu ý:</b> Nếu sếp có nhu cầu đặt kích thước lớn hơn hoặc yêu cầu riêng theo sở thích, đừng ngần ngại nhắn trực tiếp cho shop nhé!</p>",
+        "video_url": "https://www.youtube.com/watch?v=uIOpI7kHIlo&list=RDuIOpI7kHIlo&start_radio=1"
+    },
+    {
+        "id": 2,
+        "category": "plant",
+        "name": "Bộ Kít DIY - SHIBA SAMURAI ( Chó Cau Có ) - #001",
+        "price": "180.000 đ",
+        "img": "images/sp_2/1.png",
+        "images": [
+            "images/sp_2/1.png",
+            "images/sp_2/2.png",
+            "images/sp_2/3.jpg",
+            "images/sp_2/4.png",
+            "images/sp_2/5.png"
+        ],
+        "desc": [
+            "<p><b>Thỏa sức sáng tạo, tự tay tô điểm cá tính cho góc làm việc hoặc làm món quà tặng handmade cực kỳ ý nghĩa!</b></p>",
+            "<p style=\"margin-top: 12px;\"><b>📦 Bộ Kit đầy đủ bao gồm:</b></p>",
+            "<ul style=\"padding-left: 20px; margin-top: 5px;\">",
+            "<li>01 Phôi mô hình 3D: In nhựa cao cấp chuẩn size tiêu chuẩn (Cao ~12-15 cm), đã được sơn lót tỉ mỉ giúp màu Acrylic bám dính cực tốt, lên màu chuẩn và che phủ hoàn toàn vân in.</li>",
+            "<li>01 Vỉ 6 màu Acrylic chuyên dụng: Màu tươi sáng, an toàn, dễ pha trộn.</li>",
+            "<li>02 Cọ vẽ tiểu tiết: Hỗ trợ hoàn thiện các đường nét tỉ mỉ nhất.</li>",
+            "</ul>",
+            "<p style=\"margin-top: 12px;\"><b>💡 Hướng dẫn sử dụng nhanh:</b></p>",
+            "<ul style=\"padding-left: 20px; margin-top: 5px;\">",
+            "<li>Lấy cọ quét trực tiếp màu Acrylic lên phôi đã sơn lót sẵn.</li>",
+            "<li>Đợi màu khô tự nhiên trong khoảng 10-15 phút.</li>",
+            "<li>Trưng bày ngay thành phẩm \"masterpiece\" do chính tay mình tạo ra!</li>",
+            "</ul>",
+            "<p style=\"margin-top: 12px;\"><b>📌 Lưu ý:</b> Nếu sếp có nhu cầu đặt kích thước lớn hơn hoặc yêu cầu riêng theo sở thích, đừng ngần ngại nhắn trực tiếp cho shop nhé!</p>"
+        ],
+        "video_url": "https://www.youtube.com/watch?v=uIOpI7kHIlo&list=RDuIOpI7kHIlo&start_radio=1"
+    },
+    {
+        "id": 3,
+        "category": "plant",
+        "name": "Bộ Kít DIY - Beat Cat ( Mèo DJ Cáu Kỉnh ) #001",
+        "price": "150.000 đ",
+        "img": "images/sp_3/1.png",
+        "images": [
+            "images/sp_3/1.png",
+            "images/sp_3/2.png",
+            "images/sp_3/3.jpg"
+        ],
+        "desc": [
+            "<p><b>Thỏa sức sáng tạo, tự tay tô điểm cá tính cho góc làm việc hoặc làm món quà tặng handmade cực kỳ ý nghĩa!</b></p>",
+            "<p style=\"margin-top: 12px;\"><b>📦 Bộ Kit đầy đủ bao gồm:</b></p>",
+            "<ul style=\"padding-left: 20px; margin-top: 5px;\">",
+            "<li>01 Phôi mô hình 3D: In nhựa cao cấp chuẩn size tiêu chuẩn (Cao ~12-15 cm), đã được sơn lót tỉ mỉ giúp màu Acrylic bám dính cực tốt, lên màu chuẩn và che phủ hoàn toàn vân in.</li>",
+            "<li>01 Vỉ 6 màu Acrylic chuyên dụng: Màu tươi sáng, an toàn, dễ pha trộn.</li>",
+            "<li>02 Cọ vẽ tiểu tiết: Hỗ trợ hoàn thiện các đường nét tỉ mỉ nhất.</li>",
+            "</ul>",
+            "<p style=\"margin-top: 12px;\"><b>💡 Hướng dẫn sử dụng nhanh:</b></p>",
+            "<ul style=\"padding-left: 20px; margin-top: 5px;\">",
+            "<li>Lấy cọ quét trực tiếp màu Acrylic lên phôi đã sơn lót sẵn.</li>",
+            "<li>Đợi màu khô tự nhiên trong khoảng 10-15 phút.</li>",
+            "<li>Trưng bày ngay thành phẩm \"masterpiece\" do chính tay mình tạo ra!</li>",
+            "</ul>",
+            "<p style=\"margin-top: 12px;\"><b>📌 Lưu ý:</b> Nếu sếp có nhu cầu đặt kích thước lớn hơn hoặc yêu cầu riêng theo sở thích, đừng ngần ngại nhắn trực tiếp cho shop nhé!</p>"
+        ],
+        "video_url": ""
+    },
+    {
+        "id": 4,
+        "category": "plant",
+        "name": "Bộ Kít DIY - FUNY CAT ( Mèo Béo Tĩnh Tâm ) #002",
+        "price": "120.000 đ",
+        "img": "images/sp_4/1.png",
+        "images": [
+            "images/sp_4/1.png",
+            "images/sp_4/2.png",
+            "images/sp_4/3.png",
+            "images/sp_4/4.png"
+        ],
+        "desc": [
+            "<p><b>Thỏa sức sáng tạo, tự tay tô điểm cá tính cho góc làm việc hoặc làm món quà tặng handmade cực kỳ ý nghĩa!</b></p>",
+            "<p style=\"margin-top: 12px;\"><b>📦 Bộ Kit đầy đủ bao gồm:</b></p>",
+            "<ul style=\"padding-left: 20px; margin-top: 5px;\">",
+            "<li>01 Phôi mô hình 3D: In nhựa cao cấp chuẩn size tiêu chuẩn (Cao ~12-15 cm), đã được sơn lót tỉ mỉ giúp màu Acrylic bám dính cực tốt, lên màu chuẩn và che phủ hoàn toàn vân in.</li>",
+            "<li>01 Vỉ 6 màu Acrylic chuyên dụng: Màu tươi sáng, an toàn, dễ pha trộn.</li>",
+            "<li>02 Cọ vẽ tiểu tiết: Hỗ trợ hoàn thiện các đường nét tỉ mỉ nhất.</li>",
+            "</ul>",
+            "<p style=\"margin-top: 12px;\"><b>💡 Hướng dẫn sử dụng nhanh:</b></p>",
+            "<ul style=\"padding-left: 20px; margin-top: 5px;\">",
+            "<li>Lấy cọ quét trực tiếp màu Acrylic lên phôi đã sơn lót sẵn.</li>",
+            "<li>Đợi màu khô tự nhiên trong khoảng 10-15 phút.</li>",
+            "<li>Trưng bày ngay thành phẩm \"masterpiece\" do chính tay mình tạo ra!</li>",
+            "</ul>",
+            "<p style=\"margin-top: 12px;\"><b>📌 Lưu ý:</b> Nếu sếp có nhu cầu đặt kích thước lớn hơn hoặc yêu cầu riêng theo sở thích, đừng ngần ngại nhắn trực tiếp cho shop nhé!</p>"
+        ],
+        "video_url": ""
+    }
+]

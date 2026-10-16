@@ -1,0 +1,672 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vua Đèn Decor 3D</title>
+    <style>
+        /* CSS Reset & Cấu hình chung */
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { 
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+            background-color: #121212; /* Nền tối */
+            color: #E0E0E0; /* Chữ sáng */
+        }
+        
+        /* Header */
+        header { 
+            display: flex; justify-content: space-between; align-items: center; 
+            padding: 20px 5%; background-color: #121212; border-bottom: 1px solid #333;
+        }
+        .logo { font-size: 24px; font-weight: bold; color: #FFB703; display: flex; align-items: center; gap: 10px;}
+        .nav a { margin: 0 15px; text-decoration: none; color: #E0E0E0; font-weight: 500; }
+        .cart-icon { font-size: 24px; cursor: pointer; color: #FFB703; }
+
+        /* Hero Banner & Thanh tìm kiếm */
+        .hero { 
+            display: flex; gap: 40px; padding: 40px 5%; background-color: #1E1E1E; align-items: center; 
+        }
+        .hero img { width: 55%; border-radius: 8px; object-fit: cover; border: 1px solid #333; transition: opacity 0.5s ease-in-out; }
+        
+        .hero-text { width: 45%; }
+        .hero-text h1 { color: #FFB703; font-size: 32px; font-weight: bold; margin-bottom: 15px; line-height: 1.3; }
+        .hero-text p { color: #CCCCCC; font-size: 16px; margin-bottom: 25px; line-height: 1.6; }
+        .btn-primary { 
+            background-color: #FFB703; color: #121212; border: none; padding: 12px 24px; 
+            font-size: 16px; font-weight: bold; border-radius: 4px; cursor: pointer; transition: 0.3s;
+        }
+        .btn-primary:hover { background-color: #E6A100; }
+        
+        .search-box-hero { margin-top: 25px; position: relative; max-width: 90%; }
+        .search-box-hero input {
+            width: 100%; padding: 12px 15px 12px 45px; border: 2px solid #444; 
+            border-radius: 25px; font-size: 15px; outline: none; transition: 0.3s; 
+            background-color: #2A2A2A; color: #E0E0E0;
+        }
+        .search-box-hero input::placeholder { color: #888; }
+        .search-box-hero input:focus { border-color: #FFB703; background-color: #333; }
+        
+        @media screen and (max-width: 768px) {
+            .hero { flex-direction: column; padding: 20px 5%; }
+            .hero img, .hero-text { width: 100% !important; }
+            .hero-text h1 { font-size: 32px !important; line-height: 1.2; }
+            .hero-text p { font-size: 22px !important; margin-top: 10px; }
+        } 
+        
+        /* Khung card sản phẩm */
+        .product-card { 
+            background: #1E1E1E; padding: 12px; border-radius: 12px; 
+            border: 1px solid #333; text-align: left; 
+            box-shadow: 0 4px 15px rgba(0,0,0,0.5); display: flex;
+            flex-direction: column; width: 100% !important; max-width: none !important; 
+        }
+
+        .product-card img { 
+            width: 100% !important; height: auto !important;       
+            aspect-ratio: 3 / 4 !important; object-fit: cover !important;   
+            border-radius: 8px; margin-bottom: 15px; background: #121212;
+        }
+        .product-card h3 { font-size: 15px; font-weight: bold; color: #E0E0E0; margin-bottom: 8px; }
+        .product-card .price { font-weight: bold; color: #FFB703 !important; font-size: 16px; margin-bottom: 15px; }
+        .product-card .btn-primary {
+            width: 100%; margin-top: auto; border-radius: 8px;
+            padding: 12px; background-color: #FFB703; color: #121212;
+        }
+        
+        .product-card .img-container { position: relative; width: 100%; overflow: hidden; border-radius: 8px; }
+        .badge-image-count {
+            position: absolute; top: 10px; right: 10px; background: rgba(0, 0, 0, 0.7);
+            color: #FFB703; padding: 4px 8px; font-size: 12px; font-weight: bold;
+            border-radius: 12px; backdrop-filter: blur(4px); z-index: 2; border: 1px solid #444;
+        }
+        .badge-sold-count {
+            position: absolute; top: 10px; left: 10px; background: rgba(255, 183, 3, 0.9);
+            color: #121212; padding: 4px 8px; font-size: 11px; font-weight: bold;
+            border-radius: 12px; box-shadow: 0 2px 4px rgba(0,0,0,0.3); z-index: 2;
+        }
+        .product-code { font-size: 12px; color: #aaa; margin-bottom: 4px; }
+
+        .category-section { 
+            padding: 40px 5% 20px 5% !important; display: flex; 
+            align-items: center; gap: 15px; flex-wrap: wrap; width: 100%;
+        }
+        
+        .main-layout { 
+            display: flex; width: 100%; gap: 30px; padding: 0 10px 60px 10px !important; 
+        }
+
+        .product-grid { 
+            display: grid; grid-template-columns: repeat(4, 1fr); gap: 25px; 
+        }
+
+        .load-more-container { text-align: center; margin: 30px 0 50px 0; }
+        .btn-load-more {
+            padding: 12px 35px; background-color: #1E1E1E; border: 2px solid #FFB703; 
+            color: #FFB703; font-size: 16px; font-weight: bold; border-radius: 25px; 
+            cursor: pointer; transition: all 0.3s ease;
+        }
+        .btn-load-more:hover { background-color: #FFB703; color: #121212; }
+
+        .custom-cta-box {
+            background-color: #1E1E1E; border: 2px dashed #FFB703;
+            border-radius: 12px; text-align: center; padding: 35px 20px; margin-bottom: 60px;
+        }
+        .custom-cta-box h2 { color: #FFB703; margin-bottom: 10px; font-size: 22px; }
+        .custom-cta-box p { color: #CCCCCC; margin-bottom: 25px; font-size: 15px; }
+        .cta-buttons a {
+            display: inline-block; padding: 12px 30px; border-radius: 8px;
+            text-decoration: none; color: white; font-weight: bold; margin: 0 10px; transition: opacity 0.3s;
+        }
+        .cta-buttons a:hover { opacity: 0.8; }
+
+        .healing-grid {
+            display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; margin-bottom: 50px;
+        }
+        .healing-item {
+            text-decoration: none; background: #1E1E1E; padding: 12px;
+            border-radius: 10px; border: 1px solid #333; box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+            text-align: center; display: block; transition: transform 0.3s;
+        }
+        .healing-item:hover { transform: translateY(-5px); border-color: #FFB703; }
+        .healing-item p { font-size: 14px; font-weight: bold; color: #E0E0E0; margin: 0; }
+
+        /* Tối ưu hóa cho Mobile */
+        @media screen and (max-width: 768px) {
+            header { justify-content: flex-start !important; padding: 15px 5% !important; }
+            .logo { font-size: 18px !important; gap: 6px !important; }
+            .logo img { height: 24px !important; }
+            .desktop-only { display: none !important; }
+            .product-grid { grid-template-columns: 1fr !important; gap: 20px !important; padding: 0 10px; }
+            .product-card { max-width: 100% !important; }
+            .product-card img { height: 280px !important; object-fit: cover; }
+            .healing-grid { grid-template-columns: repeat(2, 1fr) !important; gap: 12px !important; }
+            .custom-cta-box { padding: 25px 20px !important; margin: 30px auto; }
+            .cta-buttons a { display: block !important; margin: 10px 0 !important; }
+        }
+
+        /* Modal (Popup Chi tiết sản phẩm mới) */
+        .modal-overlay {
+            display: none; position: fixed; z-index: 1000; left: 0; top: 0; 
+            width: 100%; height: 100%; background-color: rgba(0,0,0,0.8); 
+            backdrop-filter: blur(8px); justify-content: center; align-items: center;
+        }
+        .modal-container {
+            background-color: #1E1E1E; border-radius: 16px; width: 90vw !important;    
+            max-width: 1100px !important; height: 90vh !important;  
+            position: relative; animation: slideDown 0.3s ease-out;
+            padding: 30px; box-shadow: 0 15px 40px rgba(0,0,0,0.6); border: 1px solid #444;
+            display: flex; flex-direction: column; overflow-y: auto;
+        }
+        .modal-close { 
+            position: absolute; top: 15px; right: 25px; font-size: 32px; font-weight: bold; cursor: pointer; color: #888; z-index: 10; 
+        }
+        .modal-close:hover { color: #FFB703; }
+        
+        .modal-body { display: flex; gap: 30px; align-items: flex-start; margin-top: 10px; }
+        
+        .modal-gallery { width: 50%; display: flex; flex-direction: column; gap: 12px; flex-shrink: 0; }
+        
+        .modal-main-img-box { width: 100%; height: 380px; }
+        .modal-main-img-box img { 
+            width: 100%; height: 100%; border-radius: 10px; object-fit: contain; 
+            background-color: #121212; border: 1px solid #333; display: block;
+        }
+
+        .modal-thumbnails {
+            display: flex; gap: 10px; overflow-x: auto; padding-bottom: 5px; align-items: flex-start;
+        }
+        .modal-thumbnails img {
+            width: 75px; height: 75px; object-fit: cover; border-radius: 8px; 
+            cursor: pointer; border: 2px solid transparent; transition: all 0.2s; flex-shrink: 0;
+        }
+        .modal-thumbnails img:hover, .modal-thumbnails img.active { border-color: #FFB703; }
+
+        #bottomVideoContainer {
+            width: 100%; margin-top: 10px; display: none;
+        }
+        
+        .modal-info { width: 48%; display: flex; flex-direction: column; justify-content: flex-start; }
+        .modal-info h2 { font-size: 26px; color: #FFB703; margin-bottom: 12px; line-height: 1.4; }
+        .modal-price { font-size: 22px; color: #E6A100; font-weight: bold; margin-bottom: 15px; }
+        .modal-desc { margin-bottom: 25px; font-size: 15px; color: #CCCCCC; line-height: 1.6; }
+        .modal-desc ul { padding-left: 20px; margin-top: 5px; }
+        
+        @media screen and (max-width: 768px) {
+            .modal-container { width: 98vw !important; height: 92vh !important; padding: 15px !important; }
+            .modal-body { flex-direction: column !important; gap: 15px !important; }
+            .modal-gallery, .modal-info { width: 100% !important; }
+            .modal-main-img-box { height: 260px !important; }
+            .modal-info h2 { font-size: 18px !important; margin-bottom: 8px !important; }
+            .modal-price { font-size: 18px !important; margin-bottom: 10px !important; }
+            .modal-desc { font-size: 13px !important; margin-bottom: 15px !important; }
+            .modal-close { top: 10px; right: 15px; font-size: 26px; }
+        }
+        .social-icons a:hover { transform: translateY(-4px); border-color: #FFB703 !important; }
+
+        #mainModalImg {
+            transition: transform 0.3s ease, object-fit 0.3s ease;
+            cursor: zoom-in;
+        }
+        #mainModalImg.zoomed {
+            transform: scale(1.6); 
+            cursor: zoom-out;
+            z-index: 50;
+            position: relative;
+        }   
+
+        #customPhotoZoomModal {
+            display: none; position: fixed; z-index: 3000; left: 0; top: 0;
+            width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.9);
+            justify-content: center; align-items: center; backdrop-filter: blur(8px);
+            cursor: zoom-out;
+        }
+        #customPhotoZoomModal img {
+            max-width: 85vw; max-height: 85vh; border-radius: 12px; object-fit: contain;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.8); border: 2px solid #333;
+        }
+
+    </style>
+</head>
+<body>
+    <div style="max-width: 1400px; margin: 0 auto; background-color: #121212; box-shadow: 0 0 20px rgba(0,0,0,0.5);">
+
+    <header>
+        <div class="logo">💡 Vua Đèn Decor 3D</div>
+    </header>
+
+    <div class="hero">
+        <img id="heroBannerImg" src="" alt="Bộ Đèn Decor">
+        <div class="hero-text">
+            <h1>THƯ GIÃN TÂM TRÍ - CẢM HỨNG KHÔNG GIAN</h1>
+            <p>Khám phá bộ sưu tập đèn decor in 3D độc bản, kiến tạo góc setup ánh sáng cực chill.</p>
+            <button class="btn-primary" onclick="document.getElementById('product-list').scrollIntoView({behavior: 'smooth'});">XEM MẪU ĐÈN NGAY</button>
+            <div class="search-box-hero">
+                <span style="position: absolute; left: 15px; top: 50%; transform: translateY(-50%); font-size: 18px; color: #888;">🔍</span>
+                <input type="text" id="searchInput" onkeyup="liveSearch()" placeholder="Bạn đang tìm mẫu đèn chiếu sáng nào?...">
+            </div>
+        </div>
+    </div>
+
+<div style="max-width: 1320px; margin: 0 auto; padding: 0 20px;">
+    <div class="category-section">
+        <h2>DANH MỤC SẢN PHẨM:</h2>
+        <button class="filter-btn active" style="background: transparent; color: #FFB703; border: 1px solid #FFB703; padding: 8px 15px; border-radius: 8px; cursor: pointer;" onclick="filterProducts('all', this)">
+            [ <span id="total-product-count">0</span> sản phẩm ]
+        </button>
+    </div>
+
+    <div class="main-wrapper" style="max-width: 1200px; margin: 0 auto; padding: 20px;">
+        <div class="product-section">
+            <div class="product-grid" id="product-list">
+                <!-- Data từ file json sẽ tự động chui vào đây -->
+            </div>
+
+            <!-- Nút Xem Thêm -->
+            <div class="load-more-container" style="text-align: center; margin: 30px 0;">
+                <button class="btn-load-more" onclick="loadMoreProducts()">Xem thêm sản phẩm</button>
+            </div>
+
+        <div class="custom-cta-box" style="padding: 20px 20px !important; margin: 20px auto !important;">
+            <h2>Bạn muốn tự tay thiết kế mẫu lồng đèn riêng?</h2>
+            <p>Gửi ý tưởng ngay — 💡 <b>Vua Đèn Decor</b> sẽ thiết kế 3D và biến không gian của bạn thành kiệt tác ánh sáng!</p>
+            <div class="cta-buttons" style="margin-top: 15px; display: flex; justify-content: center; gap: 15px; flex-wrap: wrap;">
+                <a href="https://zalo.me/0833333832" target="_blank" style="background: #0068FF; color: white; padding: 10px 20px; border-radius: 6px; text-decoration: none; font-weight: bold;">Nhắn Zalo ngay</a>
+                <a href="https://m.me/bebom213/" target="_blank" style="background: #0084FF; color: white; padding: 10px 20px; border-radius: 6px; text-decoration: none; font-weight: bold;">Nhắn Messenger Ngay</a>
+            </div>
+        </div>
+
+        <div class="healing-horizontal-container">
+            <h3 style="font-weight: bold; margin-bottom: 20px; color: #FFB703;">GÓC CẢM HỨNG SETUP :</h3>
+            <div class="healing-grid">
+                <!-- Sếp có thể tự thay link video review đèn vào đây sau nhé -->
+                <div class="healing-item">
+                    <iframe src="https://www.youtube.com/embed/ghkLuJc36wg" style="width: 100%; aspect-ratio: 1/1; border-radius: 8px; border: none;" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                    <a href="https://www.youtube.com/watch?v=ghkLuJc36wg" target="_blank" style="text-decoration: none; color: inherit; display: block; margin-top: 10px;">
+                        <p style="margin: 0; font-weight: bold;">Review góc Setup siêu chill</p>
+                    </a>
+                </div>
+                <div class="healing-item">
+                    <iframe src="https://www.youtube.com/embed/_7ah1siEwSg" style="width: 100%; aspect-ratio: 1/1; border-radius: 8px; border: none;" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                    <a href="https://www.youtube.com/shorts/_7ah1siEwSg" target="_blank" style="text-decoration: none; color: inherit; display: block; margin-top: 10px;">
+                        <p style="margin: 0; font-weight: bold;">Họa tiết đèn 3D độc đáo</p>
+                    </a>
+                </div>
+                <div class="healing-item">
+                    <div style="width: 100%; aspect-ratio: 1/1; border-radius: 8px; background: #2A2A2A; display: flex; align-items: center; justify-content: center; color: #888;">Video 3</div>
+                    <p style="margin-top: 10px; font-weight: bold;">Tùy chỉnh màu sắc đèn</p>
+                </div>
+                <div class="healing-item">
+                    <div style="width: 100%; aspect-ratio: 1/1; border-radius: 8px; background: #2A2A2A; display: flex; align-items: center; justify-content: center; color: #888;">Video 4</div>
+                    <p style="margin-top: 10px; font-weight: bold;">Đóng gói an toàn</p>
+                </div>
+            </div>
+        </div>
+</div> 
+
+    <!-- Modal (Popup Chi tiết sản phẩm mới) -->
+    <div class="modal-overlay" id="productModal">
+        <div class="modal-container">
+            <span class="modal-close" onclick="closeModal()">&times;</span>
+            <div class="modal-body">
+                
+                <div class="modal-gallery">
+                    <div class="modal-main-img-box">
+                        <img id="mainModalImg" src="" alt="Ảnh sản phẩm chính">
+                    </div>
+                    
+                    <div class="modal-thumbnails" id="modalThumbnails">
+                        <!-- Tự động load qua JS -->
+                    </div>
+
+                    <div id="bottomVideoContainer">
+                        <div style="font-size: 14px; font-weight: bold; color: #FFB703; margin-bottom: 8px;">🎬 Video Trải Nghiệm:</div>
+                        <div id="bottomIframeBox" style="width: 100%; max-width: 200px; aspect-ratio: 9/16; margin: 0 auto; background: #000; border-radius: 10px; overflow: hidden; border: 1px solid #333;">
+                            <!-- Iframe YouTube sẽ chui vào đây -->
+                        </div>
+                    </div>
+                </div>
+
+                <div class="modal-info">
+                    <h2 id="modalTitle">Tên sản phẩm</h2>
+                    <div class="modal-price" id="modalPrice">0 đ</div>
+                    <div class="modal-desc">
+                        <!-- Mô tả sản phẩm -->
+                    </div>
+
+                    <div class="modal-actions" style="display: flex; gap: 10px; margin-top: 20px;">
+                        <button id="modalZaloBtn" style="flex: 1; padding: 12px 10px; background: #0068FF; color: white; border: none; border-radius: 8px; font-size: 14px; font-weight: bold; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 8px;">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/9/91/Icon_of_Zalo.svg" alt="Zalo" width="22" height="22"> ĐẶT QUA ZALO
+                        </button>
+                        <button id="modalFbBtn" style="flex: 1; padding: 12px 10px; background: #1877F2; color: white; border: none; border-radius: 8px; font-size: 14px; font-weight: bold; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 8px;">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/b/b8/2021_Facebook_icon.svg" alt="Facebook" width="22" height="22"> ĐẶT QUA FACEBOOK
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        fetch('settings.json')
+            .then(response => response.json())
+            .then(settings => {
+                const logoEl = document.querySelector('.logo');
+                if(logoEl) logoEl.innerHTML = settings.shop_name;
+                
+                const heroTitle = document.querySelector('.hero-text h1');
+                if(heroTitle) heroTitle.innerText = settings.hero_title;
+                
+                const heroDesc = document.querySelector('.hero-text p');
+                if(heroDesc) heroDesc.innerText = settings.hero_desc;
+                
+                // --- ĐỌC ẢNH SLIDER TỪ SETTING.JSON ĐỂ CHẠY TỰ ĐỘNG ---
+                const heroBannerImg = document.getElementById("heroBannerImg");
+                if (heroBannerImg && settings.hero_banner_imgs && settings.hero_banner_imgs.length > 0) {
+                    const bannerImages = settings.hero_banner_imgs;
+                    let currentBannerIndex = 0;
+                    
+                    // Hiện ảnh đầu tiên ngay lập tức
+                    heroBannerImg.src = bannerImages[0];
+                    
+                    // Bắt đầu vòng lặp nếu có từ 2 ảnh trở lên
+                    if (bannerImages.length > 1) {
+                        setInterval(() => {
+                            heroBannerImg.style.opacity = 0; 
+                            setTimeout(() => {
+                                currentBannerIndex = (currentBannerIndex + 1) % bannerImages.length;
+                                heroBannerImg.src = bannerImages[currentBannerIndex];
+                                heroBannerImg.style.opacity = 1; 
+                            }, 500); 
+                        }, 3000); 
+                    }
+                }
+                
+                window.ZALO_NUMBER = settings.zalo_number;
+                window.FB_PAGE = settings.facebook_page;
+            })
+            .catch(error => console.error("Lỗi tải settings:", error));
+
+        let productDatabase = []; 
+        let currentDisplayLimit = 8; 
+        let currentActiveData = []; 
+
+        fetch('data.json')
+            .then(response => response.json())
+            .then(data => {
+                productDatabase = data; 
+                currentActiveData = data; 
+                renderUI(productDatabase); 
+                
+                const urlParams = new URLSearchParams(window.location.search);
+                const idFromUrl = urlParams.get('id');
+                if (idFromUrl) {
+                    setTimeout(() => {
+                        openModal(Number(idFromUrl));
+                    }, 100); 
+                }
+            })
+            .catch(error => console.error("Lỗi tải data:", error));
+
+        function renderUI(data) {
+            currentActiveData = data; 
+            const productList = document.getElementById('product-list');
+            if(!productList) return;
+            productList.innerHTML = ''; 
+
+            const reversedData = [...data].reverse();
+            const slicedData = reversedData.slice(0, currentDisplayLimit);
+
+            if (slicedData.length === 0) {
+            productList.innerHTML = `
+                <div style="grid-column: 1 / -1; width: 100%; padding: 50px 20px; background: #1E1E1E; border-radius: 16px; text-align: center; border: 2px dashed #FFB703; box-shadow: 0 10px 30px rgba(0,0,0,0.5);">
+                    <div style="font-size: 45px; margin-bottom: 15px;">💡❓</div>
+                    <h3 style="color: #FFB703; margin-bottom: 10px; font-size: 22px;">Rất Tiếc, Hiện Tại Chưa Có Mẫu Nào Khớp Từ Khóa Này!</h3>
+                    <p style="color: #ccc; font-size: 16px; margin-bottom: 0;">Đừng Lo! Bạn Có Thể Nhắn Trực Tiếp Để 💡 <b>Vua Đèn Decor</b> Thiết Kế Bản Vẽ 3D và In Theo Yêu Cầu Của Riêng Bạn Nhé!</p>
+                </div>
+            `;
+        } else {
+                slicedData.forEach((item, index) => {
+                    let imgCount = 1;
+                    if (item.images && Array.isArray(item.images) && item.images.length > 0) {
+                        imgCount = item.images.length;
+                    }
+
+                    const randomSold = 10 + ((item.id * 37) % 191); 
+                    const formattedId = String(item.id).padStart(3, '0');
+                    const productCode = `SP ${formattedId}`;
+
+                    productList.innerHTML += `
+                        <div class="product-card">
+                            <div class="img-container">
+                                <span class="badge-sold-count"> [ Đã bán  ${randomSold}]</span>
+                                <span class="badge-image-count">${imgCount} ảnh</span>
+                                <img src="${item.img}" alt="${item.name}">                              
+                            </div>
+                            <div class="product-info" style="padding-top: 10px;">
+                                <div class="product-code">Mã: ${productCode}</div>
+                                <h3>${item.name}</h3>
+                                <p class="price">${item.price}</p>
+                                <hr style="border: none; border-top: 1px dashed #444; margin: 10px 0;">
+                                <div style="display: flex; justify-content: space-between; align-items: center; font-size: 12px; color: #888; margin-bottom: 12px;">
+            <span>👁️ ${Math.floor(Math.random() * (500 - 150 + 1)) + 150} lượt xem</span>
+            <span style="color: #FFB703; font-weight: bold;">★ 5.0</span>
+        </div>
+                                <button class="btn-primary" style="width: 100%; padding: 10px; background-color: #FFB703; color: #121212; font-weight: bold; border: none; border-radius: 8px; cursor: pointer;" onclick="openModal(${item.id})"> CHI TIẾT SẢN PHẨM </button>
+                            </div>
+                        </div>
+                    `;
+                });
+            }
+
+            const loadMoreBtn = document.querySelector('.btn-load-more');
+            if (loadMoreBtn) {
+                if (currentDisplayLimit >= reversedData.length) {
+                    loadMoreBtn.style.display = 'none'; 
+                } else {
+                    loadMoreBtn.style.display = 'inline-block'; 
+                }
+            }
+
+            const countSpan = document.getElementById('total-product-count');
+            if (countSpan) {
+                countSpan.innerText = data.length; 
+            }
+        }
+
+        function loadMoreProducts() {
+            currentDisplayLimit += 8; 
+            renderUI(currentActiveData); 
+        }
+
+        function removeVietnameseTones(str) {
+            if (!str) return "";
+            return str.normalize('NFD')
+                      .replace(/[\u0300-\u036f]/g, '')
+                      .replace(/đ/g, 'd').replace(/Đ/g, 'D');
+        }
+
+        function liveSearch() {
+            const searchInput = document.getElementById('searchInput');
+            if (!searchInput) return;
+
+            const keyword = removeVietnameseTones(searchInput.value.trim().toLowerCase());
+            
+            if (!keyword) {
+                renderUI(productDatabase);
+                return;
+            }
+            
+            const searchedData = productDatabase.filter(item => {
+                const itemName = removeVietnameseTones(item.name.toLowerCase());
+                return itemName.includes(keyword);
+            });
+            
+            currentDisplayLimit = 8;
+            renderUI(searchedData);
+        }
+
+        function getYouTubeID(url) {
+            if(!url) return null;
+            const regExp = /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|&v=|shorts\/)([^#&?]*).*/;
+            const match = url.match(regExp);
+            return (match && match[2].length === 11) ? match[2] : null;
+        }
+
+        const modal = document.getElementById("productModal");
+        
+        function openModal(id) {
+            const product = productDatabase.find(p => p.id === id);
+            if(product) {
+                history.pushState(null, '', '?id=' + id);
+                const imagesList = product.images && product.images.length > 0 ? product.images : [product.img, product.img, product.img];
+                
+                const mainImg = document.getElementById('mainModalImg');
+                const bottomVideoContainer = document.getElementById('bottomVideoContainer');
+                const bottomIframeBox = document.getElementById('bottomIframeBox');
+                
+                mainImg.src = imagesList[0];
+                bottomVideoContainer.style.display = 'none';
+                bottomIframeBox.innerHTML = '';
+
+                mainImg.style.cursor = "zoom-in";
+                mainImg.onclick = function() {
+                    const zoomModal = document.getElementById('customPhotoZoomModal');
+                    const zoomedImg = document.getElementById('zoomedModalImage');
+                    zoomedImg.src = this.src;
+                    zoomModal.style.display = 'flex';
+                };
+
+                document.getElementById('modalTitle').innerText = product.name;
+                document.getElementById('modalPrice').innerText = product.price;
+
+                const descContainer = document.querySelector('.modal-desc');
+                if (descContainer) {
+                    if (Array.isArray(product.desc)) {
+                        let htmlContent = '<strong>Thông số đèn:</strong><ul style="padding-left: 20px; margin-top: 5px;">';
+                        product.desc.forEach(line => {
+                            htmlContent += `<li style="margin-bottom: 6px;">${line}</li>`;
+                        });
+                        htmlContent += '</ul>';
+                        descContainer.innerHTML = htmlContent;
+                    } else if (product.desc) {
+                        descContainer.innerHTML = product.desc;
+                    } else {
+                        descContainer.innerHTML = '<strong>Thông số đèn:</strong><p>Đang cập nhật mô tả...</p>';
+                    }
+                }
+
+                const thumbnailsContainer = document.getElementById('modalThumbnails');
+                if(thumbnailsContainer) {
+                    thumbnailsContainer.innerHTML = '';
+
+                    if (product.video_url) {
+                        const videoId = getYouTubeID(product.video_url);
+                        if (videoId) {
+                            bottomVideoContainer.style.display = 'block';
+                            bottomIframeBox.innerHTML = `<iframe src="https://www.youtube.com/embed/${videoId}" style="width: 100%; height: 100%; border: none;" allow="autoplay; encrypted-media" allowfullscreen></iframe>`;
+                        }
+                    }
+
+                    imagesList.forEach((imgSrc, index) => {
+                        const thumbImg = document.createElement('img');
+                        thumbImg.src = imgSrc;
+                        if(index === 0) thumbImg.classList.add('active'); 
+
+                        thumbImg.onmouseover = function() {
+                            mainImg.src = imgSrc;
+                            document.querySelectorAll('.modal-thumbnails img').forEach(t => t.classList.remove('active'));
+                            this.classList.add('active');
+                        };
+                        
+                        thumbImg.onclick = function() {
+                            mainImg.src = imgSrc;
+                            document.querySelectorAll('.modal-thumbnails img').forEach(t => t.classList.remove('active'));
+                            this.classList.add('active');
+                            
+                            const zoomModal = document.getElementById('customPhotoZoomModal');
+                            const zoomedImg = document.getElementById('zoomedModalImage');
+                            zoomedImg.src = imgSrc;
+                            zoomModal.style.display = 'flex';
+                        };
+
+                        thumbnailsContainer.appendChild(thumbImg);
+                    });
+                }
+
+                const message = encodeURIComponent(`Chào shop, mình muốn đặt mẫu: ${product.name}`);
+                const zaloBtn = document.getElementById('modalZaloBtn');
+                if(zaloBtn) {
+                    zaloBtn.onclick = function() {
+                        window.open(`https://zalo.me/${window.ZALO_NUMBER || '0833333832'}?text=${message}`, '_blank');
+                    };
+                }
+
+                const fbBtn = document.getElementById('modalFbBtn');
+                if(fbBtn) {
+                    fbBtn.onclick = function() {
+                        window.open(window.FB_PAGE || 'https://m.me/bebom213', '_blank');
+                    };
+                }
+
+                if(modal) {
+                    modal.style.display = "flex";
+                    document.body.style.overflow = "hidden";
+                }
+            }
+        }
+
+        function closeModal() {
+            if (modal) {
+                document.getElementById('bottomIframeBox').innerHTML = '';
+                modal.style.display = "none"; 
+                document.body.style.overflow = "auto"; 
+                
+                window.history.replaceState(null, '', window.location.pathname);
+            }
+        }
+
+        window.onclick = function(event) {
+            if (event.target === modal || event.target.id === 'customPhotoZoomModal') {
+                closeModal();
+                document.getElementById('customPhotoZoomModal').style.display = 'none';
+            }
+        }
+    </script>
+
+<footer style="max-width: 700px; margin: 20px auto; background-color: #1E1E1E; padding: 30px 20px; border-radius: 16px; border: 1px solid #333; box-shadow: 0 4px 15px rgba(0,0,0,0.5); text-align: center;">
+    <h3 style="color: #FFB703; font-size: 28px; margin-bottom: 10px;">
+        💡 Vua Đèn Decor 3D
+    </h3>
+    <p style="color: #ccc; font-size: 15px; max-width: 600px; margin: 0 auto 20px auto; line-height: 1.3;">
+        Chuyên thiết kế, in 3D các mẫu lồng đèn decor độc bản. Kiến tạo điểm nhấn ánh sáng nghệ thuật cho góc làm việc của riêng bạn!
+    </p>
+
+    <div class="social-icons" style="display: flex; justify-content: center; gap: 20px; margin-bottom: 25px; flex-wrap: wrap; align-items: center;">
+        <a href="https://facebook.com/bebom213" target="_blank" title="Facebook Page" style="background: #2A2A2A; width: 45px; height: 45px; border-radius: 50%; display: flex; align-items: center; justify-content: center; border: 1px solid #444; transition: all 0.3s;">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/b/b8/2021_Facebook_icon.svg" alt="Facebook" width="24" height="24">
+        </a>
+        <a href="https://youtube.com/@YOUR_YOUTUBE" target="_blank" title="YouTube Channel" style="background: #2A2A2A; width: 45px; height: 45px; border-radius: 50%; display: flex; align-items: center; justify-content: center; border: 1px solid #444; transition: all 0.3s;">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/0/09/YouTube_full-color_icon_%282017%29.svg" alt="YouTube" width="26" height="26">
+        </a>
+        <a href="https://tiktok.com/@YOUR_TIKTOK" target="_blank" title="TikTok" style="background: #2A2A2A; width: 45px; height: 45px; border-radius: 50%; display: flex; align-items: center; justify-content: center; border: 1px solid #444; transition: all 0.3s;">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/3/34/Ionicons_logo-tiktok.svg" alt="TikTok" width="22" height="22">
+        </a>
+        <a href="https://instagram.com/@YOUR_INSTAGRAM" target="_blank" title="Instagram" style="background: #2A2A2A; width: 45px; height: 45px; border-radius: 50%; display: flex; align-items: center; justify-content: center; border: 1px solid #444; transition: all 0.3s;">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/e/e7/Instagram_logo_2016.svg" alt="Instagram" width="24" height="24">
+        </a>
+        <a href="https://zalo.me/0833333832" target="_blank" title="Zalo Chat" style="background: #2A2A2A; width: 45px; height: 45px; border-radius: 50%; display: flex; align-items: center; justify-content: center; border: 1px solid #444; transition: all 0.3s;">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/9/91/Icon_of_Zalo.svg" alt="Zalo" width="24" height="24">
+        </a>
+    </div>
+
+    <div style="font-size: 13px; color: #666; border-top: 1px solid #333; padding-top: 15px;">
+        © 2026 Vua Đèn Decor - All rights reserved. Built with ❤️ for Setup Lovers.
+    </div>
+</footer>
+
+<div id="customPhotoZoomModal" onclick="this.style.display='none'">
+    <span style="position: absolute; top: 20px; right: 30px; color: white; font-size: 45px; font-weight: bold; cursor: pointer;">&times;</span>
+    <img id="zoomedModalImage" src="" alt="Ảnh phóng to chi tiết">
+</div>
+</body>
+</html>
